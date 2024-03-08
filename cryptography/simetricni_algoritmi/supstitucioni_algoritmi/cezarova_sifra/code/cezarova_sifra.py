@@ -1,5 +1,5 @@
-alphabet_lowercase = "abcdefghijklmnopqrstuvwxyz"
-alphabet_uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+alphabet_lowercase = [chr(i) for i in range(ord("a"), ord("z") + 1)]
+alphabet_uppercase = [chr(i) for i in range(ord("A"), ord("Z") + 1)]
 
 
 def cesar_encrypt(key):
