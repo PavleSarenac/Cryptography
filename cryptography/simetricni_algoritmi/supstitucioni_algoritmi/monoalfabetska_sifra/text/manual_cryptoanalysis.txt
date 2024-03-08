@@ -1,0 +1,77 @@
+Cipher text:
+UZQSOVUOHXMOPVGPOZPEVSGZWSZOPFPESXUDBMETSXAIZ
+VUEPHZHMDZSHZOWSFPAPPDTSVPQUZWYMXUZUHSX
+EPYEPOPDZSZUFPOMBZWPFUPZHMDJUDTMOHMQ
+
+Assumptions based on statistics:
+P ---> e
+Z ---> t
+
+Cipher text after these assumptions:
+UtQSOVUOHXMOeVGeOteEVSGtWStOeFeESXUDBMETSXAIt
+VUEeHtHMDtSHtOWSFeAeeDTSVeQUtWYMXUtUHSX
+EeYEeOeDtStUFeOMBtWeFUetHMDJUDTMOHMQ
+
+Assumptions based on statistics:
+"tWe" is found in the cipher text now, so we will assume that "tWe" <=> "the" because "the" is a very frequent trigram
+in English
+W ---> h
+
+Cipher text after these assumptions:
+UtQSOVUOHXMOeVGeOteEVSGthStOeFeESXUDBMETSXAIt
+VUEeHtHMDtSHtOhSFeAeeDTSVeQUthYMXUtUHSX
+EeYEeOeDtStUFeOMB the FUetHMDJUDTMOHMQ
+
+Assumptions based on statistics:
+"thSt" is found in the cipher text now, so we will assume that "thSt" <=> "that" because "that" is a very frequent
+4-gram in English
+S ---> a
+
+Cipher text after these assumptions:
+UtQaOVUOHXMOeVGeOteEVaG that OeFeEaXUDBMETaXAIt
+VUEeHtHMDtaHtOhaFeAeeDTaVeQUthYMXUtUHaX
+EeYEeOeDtatUFeOMB the FUetHMDJUDTMOHMQ
+
+Assumptions based on statistics:
+"haFeAeeD" is found in the cipher text now, so we will assume that "haFeAeeD" <=> "have been" because that is a frequent
+construct in English
+F ---> v
+A ---> b
+D ---> n
+
+Cipher text after these assumptions:
+UtQaOVUOHXMOeVGeOteEVaG that OeveEaXUnBMETaXbIt
+VUEeHtHMntaHtO have been TaVeQUthYMXUtUHaX
+EeYEeOentatUveOMB the vUetHMnJUnTMOHMQ
+
+Assumptions based on statistics:
+"entatUve" is found in the cipher text now, so we will assume that "entatUve" <=> "entative" because that is a frequent
+construct in English
+U ---> i
+
+Cipher text after these assumptions:
+itQaOViOHXMOeVGeOteEVaG that OeveEaXinBMETaXbIt
+ViEeHtHMntaHtO have been TaVeQithYMXitiHaX
+EeYEeOentativeOMB the vietHMnJinTMOHMQ
+
+Assumptions based on statistics:
+"EeYEeOentative" is found in the cipher text now, so we will assume that "EeYEeOentativeO" <=> "representatives" because
+that is a frequent word in English
+E ---> r
+Y ---> p
+O ---> s
+
+Cipher text after these assumptions:
+itQasVisHXMseVGesterVaG that severaXinBMrTaXbIt
+VireHtHMntaHts have been TaVeQithpMXitiHaX
+representatives MB the vietHMnJinTMsHMQ
+
+Assumptions based on statistics:
+"severaX" is found in the cipher text now, so we will assume that "severaX" <=> "several" because that is a frequent
+word in English
+X ---> l
+
+Cipher text after these assumptions:
+itQasVisHlMseVGesterVaG that several inBMrTalbIt
+VireHtHMntaHts have been TaVeQithpMlitiHal
+representatives MB the vietHMnJinTMsHMQ

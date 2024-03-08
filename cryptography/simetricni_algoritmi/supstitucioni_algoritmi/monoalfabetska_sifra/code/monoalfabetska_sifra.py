@@ -6,6 +6,35 @@ alphabet_uppercase = [chr(i) for i in range(ord("A"), ord("Z") + 1)]
 plain_to_cipher_uppercase_letters = dict()
 cipher_to_plain_uppercase_letters = dict()
 
+known_letter_frequency = {
+    "a": 8.167,
+    "b": 1.492,
+    "c": 2.782,
+    "d": 4.253,
+    "e": 12.702,
+    "f": 2.228,
+    "g": 2.015,
+    "h": 6.094,
+    "i": 6.996,
+    "j": 0.153,
+    "k": 0.772,
+    "l": 4.025,
+    "m": 2.406,
+    "n": 6.749,
+    "o": 7.507,
+    "p": 1.929,
+    "q": 0.095,
+    "r": 5.987,
+    "s": 6.327,
+    "t": 9.056,
+    "u": 2.758,
+    "v": 0.978,
+    "w": 2.360,
+    "x": 0.150,
+    "y": 1.974,
+    "z": 0.074
+}
+
 
 def monoalphabet_encrypt(key):
     with open("../text/plain_text.txt", "r") as file:
@@ -21,8 +50,6 @@ def monoalphabet_encrypt(key):
             cipher_text.append(plain_to_cipher_lowercase_letters[char])
         elif is_uppercase(char):
             cipher_text.append(plain_to_cipher_uppercase_letters[char])
-        else:
-            cipher_text.append("?")
 
     return "".join(cipher_text)
 
@@ -41,10 +68,32 @@ def monoalphabet_decrypt(key):
             plain_text.append(cipher_to_plain_lowercase_letters[char])
         elif is_uppercase(char):
             plain_text.append(cipher_to_plain_uppercase_letters[char])
-        else:
-            plain_text.append("?")
 
     return "".join(plain_text)
+
+
+def monoalphabet_cryptoanalysis_decrypt():
+    with open("../text/cryptoanalysis_cipher_text.txt", "r") as file:
+        cipher_text = file.read().lower()
+
+    calculated_letter_frequency = {char: 0.00 for char in alphabet_lowercase}
+    total_number_of_letters = 0
+    for char in cipher_text:
+        if char not in alphabet_lowercase:
+            continue
+        calculated_letter_frequency[char] += 1
+        total_number_of_letters += 1
+    for char in calculated_letter_frequency.keys():
+        calculated_letter_frequency[char] \
+            = round((calculated_letter_frequency[char] / total_number_of_letters) * 100, 3)
+
+    with open("../text/cryptoanalysis_results.txt", "w") as file:
+        file.write("Known english letter frequency:\n")
+        for letter, frequency in sorted(known_letter_frequency.items(), key=lambda item: item[1], reverse=True):
+            file.write(f"{letter}: {frequency};\n")
+        file.write("\nCalculated cipher text letter frequency:\n")
+        for letter, frequency in sorted(calculated_letter_frequency.items(), key=lambda item: item[1], reverse=True):
+            file.write(f"{letter}: {frequency};\n")
 
 
 def create_plain_to_cipher_mappings(key):
