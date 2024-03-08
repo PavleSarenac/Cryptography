@@ -45,8 +45,8 @@ def cesar_brute_force_attack():
 
 
 def is_uppercase(char):
-    return 65 <= ord(char) <= 90
+    return char in alphabet_uppercase
 
 
 def is_lowercase(char):
-    return 97 <= ord(char) <= 122
+    return char in alphabet_lowercase
