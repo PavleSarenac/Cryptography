@@ -55,8 +55,8 @@ ViEeHtHMntaHtO have been TaVeQithYMXitiHaX
 EeYEeOentativeOMB the vietHMnJinTMOHMQ
 
 Assumptions based on statistics:
-"EeYEeOentative" is found in the cipher text now, so we will assume that "EeYEeOentativeO" <=> "representatives" because
-that is a frequent word in English
+"EeYEeOentativeO" is found in the cipher text now, so we will assume that "EeYEeOentativeO" <=> "representatives"
+because that is a frequent word in English
 E ---> r
 Y ---> p
 O ---> s
@@ -75,3 +75,84 @@ Cipher text after these assumptions:
 itQasVisHlMseVGesterVaG that several inBMrTalbIt
 VireHtHMntaHts have been TaVeQithpMlitiHal
 representatives MB the vietHMnJinTMsHMQ
+
+Assumptions based on statistics:
+"representatives MB" is found in the cipher text now, so we will assume that "representatives MB" <=> "representatives
+of" because that is a frequent construct in English
+M ---> o
+B ---> f
+
+Cipher text after these assumptions:
+itQasVisHloseVGesterVaG that several inforTalbIt
+VireHtHontaHts have been TaVeQithpolitiHal
+representatives of the vietHonJinTosHoQ
+
+Assumptions based on statistics:
+"inforTal" is found in the cipher text now, so we will assume that "inforTal" <=> "informal" because that is a frequent
+word in English
+T ---> m
+
+Cipher text after these assumptions:
+itQasVisHloseVGesterVaG that several informal bIt
+VireHtHontaHts have been maVeQithpolitiHal
+representatives of the vietHonJinmosHoQ
+
+Assumptions based on statistics:
+"politiHal" is found in the cipher text now, so we will assume that "politiHal" <=> "political" because that is a
+frequent word in English
+H ---> c
+
+Cipher text after these assumptions:
+itQasViscloseVGesterVaG that several informal bIt
+Virect contacts have been maVeQith political
+representatives of the vietconJinmoscoQ
+
+Assumptions based on statistics:
+"Virect" is found in the cipher text now, so we will assume that "Virect" <=> "direct" because that is a
+frequent word in English
+V ---> d
+
+Cipher text after these assumptions:
+it Qas disclosed GesterdaG that several informal bIt
+direct contacts have been made Qith political
+representatives of the vietconJinmoscoQ
+
+Assumptions based on statistics:
+"GesterdaG" is found in the cipher text now, so we will assume that "GesterdaG" <=> "yesterday" because that is a
+frequent word in English
+G ---> y
+
+Cipher text after these assumptions:
+it Qas disclosed yesterday that several informal bIt
+direct contacts have been made Qith political
+representatives of the vietconJinmoscoQ
+
+Assumptions based on statistics:
+"itQas" is found in the cipher text now, so we will assume that "it Qas" <=> "it was" because that is a
+frequent word in English
+Q ---> w
+
+Cipher text after these assumptions:
+it was disclosed yesterday that several informal bIt
+direct contacts have been made with political
+representatives of the vietconJ in moscow
+
+Assumptions based on statistics:
+"bIt" is found in the cipher text now, so we will assume that "bIt" <=> "but" because that is a
+frequent word in English
+I ---> u
+
+Cipher text after these assumptions:
+it was disclosed yesterday that several informal but
+direct contacts have been made with political
+representatives of the vietconJ in moscow
+
+Assumptions based on statistics:
+"vietconJ" is found in the cipher text now, so we will assume that "vietconJ" <=> "viet cong" because that is a
+frequent construct in English
+J ---> g
+
+Cipher text after these assumptions:
+it was disclosed yesterday that several informal but
+direct contacts have been made with political
+representatives of the viet cong in moscow
