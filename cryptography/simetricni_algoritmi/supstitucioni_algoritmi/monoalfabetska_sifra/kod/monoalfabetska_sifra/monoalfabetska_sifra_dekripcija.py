@@ -2,14 +2,14 @@ from monoalfabetska_sifra import monoalphabet_decrypt
 
 
 def get_key():
-    with open("../text/key.txt", "r") as file:
+    with open("../../tekst/key.txt", "r") as file:
         key = file.read()
     return key
 
 
 def decrypt(key):
     plain_text = monoalphabet_decrypt(key)
-    with open("../text/plain_text.txt", "w") as file:
+    with open("../../tekst/plain_text.txt", "w") as file:
         file.write("".join(plain_text))
 
 

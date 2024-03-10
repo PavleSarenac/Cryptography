@@ -37,7 +37,7 @@ known_letter_frequency = {
 
 
 def monoalphabet_encrypt(key):
-    with open("../text/plain_text.txt", "r") as file:
+    with open("../../tekst/plain_text.txt", "r") as file:
         plain_text = file.read()
 
     create_plain_to_cipher_mappings(key)
@@ -55,7 +55,7 @@ def monoalphabet_encrypt(key):
 
 
 def monoalphabet_decrypt(key):
-    with open("../text/cipher_text.txt", "r") as file:
+    with open("../../tekst/cipher_text.txt", "r") as file:
         cipher_text = file.read()
 
     create_cipher_to_plain_mappings(key)
@@ -73,7 +73,7 @@ def monoalphabet_decrypt(key):
 
 
 def monoalphabet_cryptoanalysis_decrypt():
-    with open("../text/cryptoanalysis_cipher_text.txt", "r") as file:
+    with open("../../tekst/kriptoanaliza/cryptoanalysis_cipher_text.txt", "r") as file:
         cipher_text = file.read().lower()
 
     calculated_letter_frequency = {char: 0.00 for char in alphabet_lowercase}
@@ -87,11 +87,11 @@ def monoalphabet_cryptoanalysis_decrypt():
         calculated_letter_frequency[char] \
             = round((calculated_letter_frequency[char] / total_number_of_letters) * 100, 3)
 
-    with open("../text/cryptoanalysis_results.txt", "w") as file:
+    with open("../../tekst/kriptoanaliza/cryptoanalysis_results.txt", "w") as file:
         file.write("Known english letter frequency:\n")
         for letter, frequency in sorted(known_letter_frequency.items(), key=lambda item: item[1], reverse=True):
             file.write(f"{letter}: {frequency};\n")
-        file.write("\nCalculated cipher text letter frequency:\n")
+        file.write("\nCalculated cipher tekst letter frequency:\n")
         for letter, frequency in sorted(calculated_letter_frequency.items(), key=lambda item: item[1], reverse=True):
             file.write(f"{letter}: {frequency};\n")
 
