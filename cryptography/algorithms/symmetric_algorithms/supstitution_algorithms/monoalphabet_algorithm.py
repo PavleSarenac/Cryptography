@@ -61,8 +61,8 @@ class MonoalphabetAlgorithm(CryptographicAlgorithm):
                 plain_text.append(self.cipher_to_plain[char])
         return "".join(plain_text)
 
-    def cryptoanalysis(self):
-        cipher_text = self.get_cryptoanalysis_cipher_text()
+    def cryptanalysis(self):
+        cipher_text = self.get_cryptanalysis_cipher_text()
         calculated_char_frequency = {char: 0.0 for char in self.alphabet}
         total_number_of_chars = 0
 
@@ -83,7 +83,7 @@ class MonoalphabetAlgorithm(CryptographicAlgorithm):
         for char, frequency in sorted(calculated_char_frequency.items(), key=lambda item: item[1], reverse=True):
             calculated_char_frequency_text.append(f"{char}: {frequency};\n")
 
-        file_path = os.path.join(self.testing_directory, "cryptoanalysis/cryptoanalysis_results.txt")
+        file_path = os.path.join(self.testing_directory, "cryptanalysis/cryptanalysis_results.txt")
         with open(file_path, "w") as file:
             file.write("".join(english_char_frequency_text + calculated_char_frequency_text))
 
@@ -110,8 +110,8 @@ class MonoalphabetAlgorithm(CryptographicAlgorithm):
             current_char_ascii_index += 1
         return cipher_to_plain
 
-    def get_cryptoanalysis_cipher_text(self):
-        file_path = os.path.join(self.testing_directory, "cryptoanalysis/cryptoanalysis_cipher_text.txt")
+    def get_cryptanalysis_cipher_text(self):
+        file_path = os.path.join(self.testing_directory, "cryptanalysis/cryptanalysis_cipher_text.txt")
         with open(file_path, "r") as file:
             cipher_text = file.read().lower()
         return cipher_text

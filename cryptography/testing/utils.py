@@ -22,4 +22,4 @@ def test_monoalphabet_algorithm():
     monoalphabet_algorithm = MonoalphabetAlgorithm()
     test_algorithm_basic(monoalphabet_algorithm)
 
-    monoalphabet_algorithm.cryptoanalysis()
+    monoalphabet_algorithm.cryptanalysis()
