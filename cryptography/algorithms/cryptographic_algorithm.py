@@ -5,8 +5,8 @@ import os
 class CryptographicAlgorithm(ABC):
     def __init__(self):
         self.alphabet = [chr(i) for i in range(ord("a"), ord("z") + 1)]
-        self.cipher_text = None
         self.plain_text = None
+        self.cipher_text = None
         self.testing_directory = None
 
     @abstractmethod
