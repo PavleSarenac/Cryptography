@@ -15,19 +15,19 @@ class CesarAlgorithm(CryptographicAlgorithm):
     def encrypt(self):
         cipher_text = []
         for char in self.plain_text:
-            if char not in self.alphabet:
+            if char not in self.english_alphabet:
                 cipher_text.append(char)
             else:
-                cipher_text.append(self.alphabet[(self.alphabet.index(char) + self.key) % len(self.alphabet)])
+                cipher_text.append(self.english_alphabet[(self.english_alphabet.index(char) + self.key) % len(self.english_alphabet)])
         return "".join(cipher_text)
 
     def decrypt(self):
         plain_text = []
         for char in self.cipher_text:
-            if char not in self.alphabet:
+            if char not in self.english_alphabet:
                 plain_text.append(char)
             else:
-                plain_text.append(self.alphabet[(self.alphabet.index(char) - self.key) % len(self.alphabet)])
+                plain_text.append(self.english_alphabet[(self.english_alphabet.index(char) - self.key) % len(self.english_alphabet)])
         return "".join(plain_text)
 
     def brute_force_attack(self):
@@ -40,17 +40,17 @@ class CesarAlgorithm(CryptographicAlgorithm):
 
     def get_key(self):
         file_path = os.path.join(self.testing_directory, "key.txt")
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             key = file.read()
         return int(key)
 
     def get_brute_force_attack_output(self):
         file_path = os.path.join(self.testing_directory, "brute_force_attack_output.txt")
-        with open(file_path, "r") as file:
+        with open(file_path, "r", encoding="utf-8") as file:
             brute_force_attack_output = file.read()
         return brute_force_attack_output.lower()
 
     def set_brute_force_attack_output(self, brute_force_attack_output):
         file_path = os.path.join(self.testing_directory, "brute_force_attack_output.txt")
-        with open(file_path, "w") as file:
+        with open(file_path, "w", encoding="utf-8") as file:
             file.write(brute_force_attack_output)
