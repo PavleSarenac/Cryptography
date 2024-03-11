@@ -6,7 +6,7 @@ class CesarAlgorithm(CryptographicAlgorithm):
     def __init__(self):
         super().__init__()
         script_path = os.path.dirname(__file__)
-        testing_directory_path = f"../../../testing/symmetric_algorithms/supstitution_algorithms/cesar_algorithm"
+        testing_directory_path = f"../../../../testing/symmetric_algorithms/substitution_algorithms/monoalphabetic_algorithms/cesar_algorithm"
         self.testing_directory = os.path.join(script_path, testing_directory_path)
         self.key = self.get_key()
         self.plain_text = self.get_plain_text()

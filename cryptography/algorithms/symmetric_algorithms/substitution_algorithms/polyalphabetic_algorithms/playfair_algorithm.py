@@ -7,7 +7,7 @@ class PlayfairAlgorithm(CryptographicAlgorithm):
     def __init__(self):
         super().__init__()
         script_path = os.path.dirname(__file__)
-        testing_directory_path = f"../../../testing/symmetric_algorithms/supstitution_algorithms/playfair_algorithm"
+        testing_directory_path = f"../../../../testing/symmetric_algorithms/substitution_algorithms/polyalphabetic_algorithms/playfair_algorithm"
         self.testing_directory = os.path.join(script_path, testing_directory_path)
         self.key = self.get_key()
         self.plain_text = self.get_plain_text()
@@ -78,10 +78,10 @@ class PlayfairAlgorithm(CryptographicAlgorithm):
                 reformatted_plain_text += [current_char, next_char]
                 char_index += 2
             else:
-                reformatted_plain_text += [current_char, "џ"]
+                reformatted_plain_text += [current_char, "x"]
                 char_index += 1
         if reformatted_plain_text[-1] != self.plain_text[-1]:
-            reformatted_plain_text += [self.plain_text[-1], "џ"]
+            reformatted_plain_text += [self.plain_text[-1], "x"]
 
         self.plain_text = "".join(reformatted_plain_text)
 
@@ -90,33 +90,5 @@ class PlayfairAlgorithm(CryptographicAlgorithm):
         for char in self.key:
             if char not in matrix_elements:
                 matrix_elements.append(char)
-        matrix_elements += [char for char in self.serbian_alphabet if char not in self.key]
-        return np.array(matrix_elements).reshape(5, 6)
-
-    # def reformat_plain_text(self):
-    #     if len(self.plain_text) == 0:
-    #         return
-    #
-    #     reformatted_plain_text = []
-    #     char_index = 0
-    #     while char_index < len(self.plain_text) - 1:
-    #         current_char = self.plain_text[char_index]
-    #         next_char = self.plain_text[char_index + 1]
-    #         if current_char != next_char:
-    #             reformatted_plain_text += [current_char, next_char]
-    #             char_index += 2
-    #         else:
-    #             reformatted_plain_text += [current_char, "x"]
-    #             char_index += 1
-    #     if reformatted_plain_text[-1] != self.plain_text[-1]:
-    #         reformatted_plain_text += [self.plain_text[-1], "x"]
-    #
-    #     self.plain_text = "".join(reformatted_plain_text)
-
-    # def create_key_based_matrix(self):
-    #     matrix_elements = []
-    #     for char in self.key:
-    #         if char not in matrix_elements:
-    #             matrix_elements.append(char)
-    #     matrix_elements += [char for char in self.english_alphabet if char not in self.key and char != "j"]
-    #     return np.array(matrix_elements).reshape(5, 5)
+        matrix_elements += [char for char in self.english_alphabet if char not in self.key and char != "j"]
+        return np.array(matrix_elements).reshape(5, 5)
