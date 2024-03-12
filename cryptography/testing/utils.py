@@ -1,5 +1,5 @@
 from algorithms.symmetric_algorithms.substitution_algorithms.monoalphabetic_algorithms.cesar_algorithm import CesarAlgorithm
-from algorithms.symmetric_algorithms.substitution_algorithms.monoalphabetic_algorithms.monoalphabetic_algorithm import MonoalphabetAlgorithm
+from algorithms.symmetric_algorithms.substitution_algorithms.monoalphabetic_algorithms.monoalphabetic_algorithm import MonoalphabeticAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.playfair_algorithm import PlayfairAlgorithm
 
 
@@ -19,8 +19,8 @@ def test_cesar_algorithm():
     cesar_algorithm.set_brute_force_attack_output(brute_force_attack_output)
 
 
-def test_monoalphabet_algorithm():
-    monoalphabet_algorithm = MonoalphabetAlgorithm()
+def test_monoalphabetic_algorithm():
+    monoalphabet_algorithm = MonoalphabeticAlgorithm()
     test_algorithm_basic(monoalphabet_algorithm)
 
     monoalphabet_algorithm.cryptanalysis()

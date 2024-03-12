@@ -3,7 +3,7 @@ import os
 import random
 
 
-class MonoalphabetAlgorithm(CryptographicAlgorithm):
+class MonoalphabeticAlgorithm(CryptographicAlgorithm):
     def __init__(self):
         super().__init__()
         script_path = os.path.dirname(__file__)
