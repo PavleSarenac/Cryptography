@@ -88,11 +88,11 @@ class MonoalphabeticAlgorithm(CryptographicAlgorithm):
             file.write("".join(english_char_frequency_text + calculated_char_frequency_text))
 
     def get_key(self):
-        key = "".join(random.sample(self.english_alphabet, len(self.english_alphabet)))
+        key = "".join(random.sample(self.english_alphabet, len(self.english_alphabet))).lower()
         file_path = os.path.join(self.testing_directory, "key.txt")
         with open(file_path, "w", encoding="utf-8") as file:
             file.write(key)
-        return key.lower()
+        return key
 
     def get_plain_to_cipher_mappings(self):
         current_char_ascii_index = ord("a")

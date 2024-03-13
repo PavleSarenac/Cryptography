@@ -1,6 +1,7 @@
 from algorithms.symmetric_algorithms.substitution_algorithms.monoalphabetic_algorithms.cesar_algorithm import CesarAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.monoalphabetic_algorithms.monoalphabetic_algorithm import MonoalphabeticAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.playfair_algorithm import PlayfairAlgorithm
+from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.vigenere_algorithm import VigenereAlgorithm
 
 
 def test_algorithm_basic(algorithm):
@@ -29,3 +30,8 @@ def test_monoalphabetic_algorithm():
 def test_playfair_algorithm():
     playfair_algorithm = PlayfairAlgorithm()
     test_algorithm_basic(playfair_algorithm)
+
+
+def test_vigenere_algorithm():
+    vigenere_algorithm = VigenereAlgorithm()
+    test_algorithm_basic(vigenere_algorithm)

@@ -62,8 +62,8 @@ class PlayfairAlgorithm(CryptographicAlgorithm):
     def get_key(self):
         file_path = os.path.join(self.testing_directory, "key.txt")
         with open(file_path, "r", encoding="utf-8") as file:
-            key = file.read()
-        return key.lower()
+            key = file.read().strip().lower()
+        return key
 
     def reformat_plain_text(self):
         if len(self.plain_text) == 0:
