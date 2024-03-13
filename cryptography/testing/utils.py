@@ -3,6 +3,7 @@ from algorithms.symmetric_algorithms.substitution_algorithms.monoalphabetic_algo
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.playfair_algorithm import PlayfairAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.vigenere_algorithm import VigenereAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.autokey_algorithm import AutokeyAlgorithm
+from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.hill_algorithm import HillAlgorithm
 
 
 def test_algorithm_basic(algorithm):
@@ -41,3 +42,8 @@ def test_vigenere_algorithm():
 def test_autokey_algorithm():
     autokey_algorithm = AutokeyAlgorithm()
     test_algorithm_basic(autokey_algorithm)
+
+
+def test_hill_algorithm():
+    hill_algorithm = HillAlgorithm()
+    test_algorithm_basic(hill_algorithm)
