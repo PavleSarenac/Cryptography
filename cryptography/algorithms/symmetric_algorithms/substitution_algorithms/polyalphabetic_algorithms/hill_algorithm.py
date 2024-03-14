@@ -2,6 +2,7 @@ from algorithms.cryptographic_algorithm import CryptographicAlgorithm
 import os
 import numpy as np
 import sympy as sy
+import scipy
 
 
 class HillAlgorithm(CryptographicAlgorithm):
@@ -48,8 +49,22 @@ class HillAlgorithm(CryptographicAlgorithm):
         return np.array(key).reshape(3, 3)
 
     def get_inverse_key_matrix(self):
-        determinant = int(np.linalg.det(self.key)) % len(self.english_alphabet)
+        determinant = int(scipy.linalg.det(self.key)) % len(self.english_alphabet)
         inverse_determinant = pow(determinant, -1, len(self.english_alphabet))
-        adjoint_matrix = sy.matrix2numpy(sy.matrices.matrices.MatrixDeterminant.adjugate(sy.Matrix(self.key)))
+        adjoint_matrix = self.get_adjoint_matrix_numpy_and_scipy()
         inverse_matrix = (inverse_determinant * adjoint_matrix) % 26
         return inverse_matrix
+
+    def get_adjoint_matrix_numpy_and_scipy(self):
+        cofactors_matrix = np.empty_like(self.key, int)
+        for i in range(self.key.shape[0]):
+            for j in range(self.key.shape[1]):
+                submatrix = np.delete(np.delete(self.key, i, 0), j, 1)
+                minor = int(scipy.linalg.det(submatrix))
+                cofactor = pow(-1, i + j) * minor
+                cofactors_matrix[i, j] = cofactor
+        adjoint_matrix = cofactors_matrix.transpose()
+        return adjoint_matrix
+
+    def get_adjoint_matrix_sympy(self):
+        return sy.matrix2numpy(sy.matrices.matrices.MatrixDeterminant.adjugate(sy.Matrix(self.key)))
