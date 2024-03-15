@@ -9,6 +9,7 @@ def main():
     test_autokey_algorithm()
     test_hill_algorithm()
     test_vernam_algorithm()
+    test_one_time_pad_algorithm()
 
 
 if __name__ == "__main__":

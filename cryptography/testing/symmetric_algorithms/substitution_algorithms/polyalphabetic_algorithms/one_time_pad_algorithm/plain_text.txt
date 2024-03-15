@@ -1,0 +1,2 @@
+one time pad cipher is the only truly unbreakable cipher, but it is not practical because new key needs to be generated
+for every encryption, and the key also needs to be the same length as the plain text - performance is then very bad

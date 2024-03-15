@@ -5,6 +5,7 @@ from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algo
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.autokey_algorithm import AutokeyAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.hill_algorithm import HillAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.vernam_algorithm import VernamAlgorithm
+from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.one_time_pad_algorithm import OneTimePadAlgorithm
 
 
 def test_algorithm_basic(algorithm):
@@ -53,3 +54,8 @@ def test_hill_algorithm():
 def test_vernam_algorithm():
     vernam_algorithm = VernamAlgorithm()
     test_algorithm_basic(vernam_algorithm)
+
+
+def test_one_time_pad_algorithm():
+    one_time_pad_algorithm = OneTimePadAlgorithm()
+    test_algorithm_basic(one_time_pad_algorithm)
