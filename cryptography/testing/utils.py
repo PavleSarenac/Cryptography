@@ -4,6 +4,7 @@ from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algo
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.vigenere_algorithm import VigenereAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.autokey_algorithm import AutokeyAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.hill_algorithm import HillAlgorithm
+from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.vernam_algorithm import VernamAlgorithm
 
 
 def test_algorithm_basic(algorithm):
@@ -47,3 +48,8 @@ def test_autokey_algorithm():
 def test_hill_algorithm():
     hill_algorithm = HillAlgorithm()
     test_algorithm_basic(hill_algorithm)
+
+
+def test_vernam_algorithm():
+    vernam_algorithm = VernamAlgorithm()
+    test_algorithm_basic(vernam_algorithm)

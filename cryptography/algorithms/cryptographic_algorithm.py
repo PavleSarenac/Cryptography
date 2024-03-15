@@ -5,6 +5,7 @@ import os
 class CryptographicAlgorithm(ABC):
     def __init__(self):
         self.english_alphabet = [chr(i) for i in range(ord("a"), ord("z") + 1)]
+        self.extended_english_alphabet = self.english_alphabet + [chr(i) for i in range(ord("A"), ord("A") + 6)]
         self.serbian_cyrillic_alphabet = list("абвгдђежзијклљмнњопрстћуфхцчџш")
         self.plain_text = None
         self.cipher_text = None

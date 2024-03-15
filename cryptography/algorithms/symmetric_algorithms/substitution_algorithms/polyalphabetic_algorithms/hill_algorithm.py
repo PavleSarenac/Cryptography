@@ -45,14 +45,14 @@ class HillAlgorithm(CryptographicAlgorithm):
     def get_key(self):
         file_path = os.path.join(self.testing_directory, "key.txt")
         with open(file_path, "r", encoding="utf-8") as file:
-            key = [int(matrix_element) for matrix_element in file.read().split(",")]
+            key = [int(matrix_element) % len(self.english_alphabet) for matrix_element in file.read().split(",")]
         return np.array(key).reshape(3, 3)
 
     def get_inverse_key_matrix(self):
         determinant = int(scipy.linalg.det(self.key)) % len(self.english_alphabet)
         inverse_determinant = pow(determinant, -1, len(self.english_alphabet))
         adjoint_matrix = self.get_adjoint_matrix_numpy_and_scipy()
-        inverse_matrix = (inverse_determinant * adjoint_matrix) % 26
+        inverse_matrix = (inverse_determinant * adjoint_matrix) % len(self.english_alphabet)
         return inverse_matrix
 
     def get_adjoint_matrix_numpy_and_scipy(self):

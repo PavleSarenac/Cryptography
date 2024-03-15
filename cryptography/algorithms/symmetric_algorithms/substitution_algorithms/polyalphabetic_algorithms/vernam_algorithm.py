@@ -2,11 +2,11 @@ from algorithms.cryptographic_algorithm import CryptographicAlgorithm
 import os
 
 
-class VigenereAlgorithm(CryptographicAlgorithm):
+class VernamAlgorithm(CryptographicAlgorithm):
     def __init__(self):
         super().__init__()
         script_path = os.path.dirname(__file__)
-        testing_directory_path = f"../../../../testing/symmetric_algorithms/substitution_algorithms/polyalphabetic_algorithms/vigenere_algorithm"
+        testing_directory_path = f"../../../../testing/symmetric_algorithms/substitution_algorithms/polyalphabetic_algorithms/vernam_algorithm"
         self.testing_directory = os.path.join(script_path, testing_directory_path)
         self.plain_text = self.get_plain_text()
         self.cipher_text = self.get_cipher_text()
@@ -18,21 +18,21 @@ class VigenereAlgorithm(CryptographicAlgorithm):
             if plain_char not in self.english_alphabet:
                 cipher_text.append(plain_char)
             else:
-                cipher_text.append(self.english_alphabet[(self.english_alphabet.index(plain_char) + self.english_alphabet.index(key_char)) % len(self.english_alphabet)])
+                cipher_text.append(self.extended_english_alphabet[self.extended_english_alphabet.index(plain_char) ^ self.extended_english_alphabet.index(key_char)])
         return "".join(cipher_text)
 
     def decrypt(self):
         plain_text = []
         for cipher_char, key_char in zip(self.cipher_text, self.key):
-            if cipher_char not in self.english_alphabet:
+            if cipher_char not in self.extended_english_alphabet:
                 plain_text.append(cipher_char)
             else:
-                plain_text.append(self.english_alphabet[(self.english_alphabet.index(cipher_char) - self.english_alphabet.index(key_char)) % len(self.english_alphabet)])
+                plain_text.append(self.extended_english_alphabet[self.extended_english_alphabet.index(cipher_char) ^ self.extended_english_alphabet.index(key_char)])
         return "".join(plain_text)
 
     def get_key(self):
         file_path = os.path.join(self.testing_directory, "key.txt")
-        initial_key = "deceptive"
+        initial_key = "longtapewithrepeatedkey"
         final_key = ""
         for char_index in range(len(self.plain_text)):
             final_key += initial_key[char_index % len(initial_key)]
@@ -40,3 +40,15 @@ class VigenereAlgorithm(CryptographicAlgorithm):
         with open(file_path, "w", encoding="utf-8") as file:
             file.write(final_key)
         return final_key
+
+    def get_cipher_text(self):
+        file_path = os.path.join(self.testing_directory, "cipher_text.txt")
+        with open(file_path, "r", encoding="utf-8") as file:
+            cipher_text = file.read()
+        return cipher_text
+
+    def set_cipher_text(self, cipher_text):
+        self.cipher_text = cipher_text
+        file_path = os.path.join(self.testing_directory, "cipher_text.txt")
+        with open(file_path, "w", encoding="utf-8") as file:
+            file.write(self.cipher_text)
