@@ -41,8 +41,8 @@ class CesarAlgorithm(CryptographicAlgorithm):
     def get_key(self):
         file_path = os.path.join(self.testing_directory, "key.txt")
         with open(file_path, "r", encoding="utf-8") as file:
-            key = file.read()
-        return int(key)
+            key = int(file.read())
+        return key
 
     def get_brute_force_attack_output(self):
         file_path = os.path.join(self.testing_directory, "brute_force_attack_output.txt")

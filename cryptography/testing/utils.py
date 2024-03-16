@@ -6,6 +6,7 @@ from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algo
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.hill_algorithm import HillAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.vernam_algorithm import VernamAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.one_time_pad_algorithm import OneTimePadAlgorithm
+from algorithms.symmetric_algorithms.transposition_algorithms.rail_fence_algorithm import RailFenceAlgorithm
 
 
 def test_algorithm_basic(algorithm):
@@ -59,3 +60,8 @@ def test_vernam_algorithm():
 def test_one_time_pad_algorithm():
     one_time_pad_algorithm = OneTimePadAlgorithm()
     test_algorithm_basic(one_time_pad_algorithm)
+
+
+def test_rail_fence_algorithm():
+    rail_fence_algorithm = RailFenceAlgorithm()
+    test_algorithm_basic(rail_fence_algorithm)
