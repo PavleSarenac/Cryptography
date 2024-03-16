@@ -7,6 +7,7 @@ from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algo
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.vernam_algorithm import VernamAlgorithm
 from algorithms.symmetric_algorithms.substitution_algorithms.polyalphabetic_algorithms.one_time_pad_algorithm import OneTimePadAlgorithm
 from algorithms.symmetric_algorithms.transposition_algorithms.rail_fence_algorithm import RailFenceAlgorithm
+from algorithms.symmetric_algorithms.transposition_algorithms.row_transposition_algorithm import RowTranspositionAlgorithm
 
 
 def test_algorithm_basic(algorithm):
@@ -65,3 +66,9 @@ def test_one_time_pad_algorithm():
 def test_rail_fence_algorithm():
     rail_fence_algorithm = RailFenceAlgorithm()
     test_algorithm_basic(rail_fence_algorithm)
+
+
+def test_row_transposition_algorithm():
+    row_transposition_algorithm = RowTranspositionAlgorithm()
+    test_algorithm_basic(row_transposition_algorithm)
+

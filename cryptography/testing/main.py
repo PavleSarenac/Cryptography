@@ -16,6 +16,7 @@ def main():
 
     # Symmetric transposition algorithms
     test_rail_fence_algorithm()
+    test_row_transposition_algorithm()
 
 
 if __name__ == "__main__":
