@@ -40,8 +40,7 @@ def feistel_algorithm(left_block_half, right_block_half, is_encryption):
         left_block_half = previous_right_block_half
         right_block_half = previous_left_block_half ^ feistel_function(
             previous_right_block_half,
-            get_current_round_key_encryption(
-                current_round_number) if is_encryption else get_current_round_key_decryption(number_of_rounds, current_round_number)
+            get_current_round_key_encryption(current_round_number) if is_encryption else get_current_round_key_decryption(number_of_rounds, current_round_number)
         )
     return right_block_half, left_block_half
 
