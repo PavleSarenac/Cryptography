@@ -1,18 +1,14 @@
-alphabet = [chr(i) for i in range(ord("a"), ord("z") + 1)]
-extended_alphabet = alphabet + [chr(i) for i in range(ord("A"), ord("A") + 6)]
-
-
 def encrypt(plain_text, key):
     cipher_text = ""
     for plain_char, key_char in zip(plain_text, key):
-        cipher_text += extended_alphabet[extended_alphabet.index(plain_char) ^ extended_alphabet.index(key_char)]
+        cipher_text += chr(ord(plain_char) ^ ord(key_char))
     return cipher_text
 
 
 def decrypt(cipher_text, key):
     plain_text = ""
     for cipher_char, key_char in zip(cipher_text, key):
-        plain_text += extended_alphabet[extended_alphabet.index(cipher_char) ^ extended_alphabet.index(key_char)]
+        plain_text += chr(ord(cipher_char) ^ ord(key_char))
     return plain_text
 
 
