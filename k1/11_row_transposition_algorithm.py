@@ -4,22 +4,23 @@ import numpy as np
 def encrypt(plain_text, key):
     reformatted_plain_text = list(reformat_plain_text(plain_text, key))
     plain_text_matrix = np.array(reformatted_plain_text).reshape(len(reformatted_plain_text) // len(key), len(key))
+    print(plain_text_matrix)
     cipher_text = ""
     for i in range(len(key)):
-        cipher_text += "".join(plain_text_matrix[:, key[i]])
+        cipher_text += "".join(plain_text_matrix[:, key.index(i)])
     return cipher_text
 
 
 def decrypt(cipher_text, key):
     plain_text = ""
     original_columns = ["" for _ in range(len(key))]
-    cipher_char_index = 0
-    for i in range(len(key)):
-        for _ in range(len(cipher_text) // len(key)):
-            original_columns[key[i]] += cipher_text[cipher_char_index]
-            cipher_char_index += 1
-    for row_index in range(len(cipher_text) // len(key)):
-        for column_index in range(len(key)):
+    number_of_columns = len(key)
+    number_of_rows = len(cipher_text) // len(key)
+    for i in range(number_of_columns):
+        for j in range(number_of_rows):
+            original_columns[i] += cipher_text[key[i] * number_of_rows + j]
+    for row_index in range(number_of_rows):
+        for column_index in range(number_of_columns):
             plain_text += original_columns[column_index][row_index]
     return "".join(plain_text)
 
