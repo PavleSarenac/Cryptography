@@ -18,8 +18,8 @@ def feistel_algorithm(block):
         right_half = prev_left_half ^ feistel_round_function(prev_right_half)
         prev_left_half = left_half
         prev_right_half = right_half
-    char_1 = alphabet[right_half % len(alphabet)]
-    char_2 = alphabet[left_half % len(alphabet)]
+    char_1 = alphabet[right_half]
+    char_2 = alphabet[left_half]
     digram = char_1 + char_2
     return digram
 
