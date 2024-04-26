@@ -65,10 +65,10 @@ if __name__ == "__main__":
     main()
 
 """
-Cipher can be broken using following approaches (assumption is that 
-all single letter frequencies are obliterated, not just for letter "e"):
+Cipher can be broken using following approaches:
 - cryptanalysis 
     * analysis of letter frequencies (trigrams)
-    * known plaintext attack - for MxM Hill algorithm key matrix, if cryptanalyst knows M plaintext-ciphertext
-    pairs each of length M, then he can find out what the key matrix is by solving a system of linear equations
+    * known plaintext attack - for MxM Hill algorithm key matrix, if cryptanalyst knows M^2 plaintext-ciphertext
+    letter pairs, then he can find out what the key matrix is by solving a system of M^2 linear equations since the
+    key matrix has M^2 coefficients that are unknown to the attacker
 """

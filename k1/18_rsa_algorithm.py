@@ -43,11 +43,11 @@ def miller_rabin_is_second_condition_true(a, k, q, p):
 
 def rsa_get_p_and_q():
     p = q = None
-    for potential_factor_of_n in range(1 << 6, 1 << 7):
+    for potential_factor_of_n in range(1 << 1024, 1 << 1025):
         if is_prime_number_miller_rabin_algorithm(potential_factor_of_n):
             p = potential_factor_of_n
             break
-    for potential_factor_of_n in range(1 << 6, 1 << 7):
+    for potential_factor_of_n in range(1 << 1024, 1 << 1025):
         if potential_factor_of_n != p and is_prime_number_miller_rabin_algorithm(potential_factor_of_n):
             q = potential_factor_of_n
             break

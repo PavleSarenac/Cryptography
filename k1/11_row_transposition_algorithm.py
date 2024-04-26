@@ -4,7 +4,6 @@ import numpy as np
 def encrypt(plain_text, key):
     reformatted_plain_text = list(reformat_plain_text(plain_text, key))
     plain_text_matrix = np.array(reformatted_plain_text).reshape(len(reformatted_plain_text) // len(key), len(key))
-    print(plain_text_matrix)
     cipher_text = ""
     for i in range(len(key)):
         cipher_text += "".join(plain_text_matrix[:, key.index(i)])
