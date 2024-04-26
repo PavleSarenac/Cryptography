@@ -20,15 +20,15 @@ def decrypt(ciphertext, d):
     plaintext = ""
     for i in range(0, len(ciphertext), 4):
         cipher_block_hex_string = ciphertext[i:i+4]
-        cipher_block_hex_int = int(cipher_block_hex_string, 16)
-        plain_block_hex_int = pow(cipher_block_hex_int, d, n)
-        plaintext += get_digram(plain_block_hex_int)
+        cipher_block_int = int(cipher_block_hex_string, 16)
+        plain_block_int = pow(cipher_block_int, d, n)
+        plaintext += get_digram(plain_block_int)
     return plaintext
 
 
-def get_digram(plain_block_hex_int):
-    char_1_ascii_code = plain_block_hex_int // 256
-    char_2_ascii_code = plain_block_hex_int % 256
+def get_digram(plain_block_int):
+    char_1_ascii_code = plain_block_int // 256
+    char_2_ascii_code = plain_block_int % 256
     digram = chr(char_1_ascii_code) + chr(char_2_ascii_code)
     return digram
 
