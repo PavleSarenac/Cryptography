@@ -8,18 +8,23 @@ def encrypt(plain_text, key):
     return cipher_text
 
 
-def decrypt(cipher_text, key):
-    plain_text = ""
-    for cipher_char, key_char in zip(cipher_text, key):
-        plain_text += alphabet[(alphabet.index(cipher_char) - alphabet.index(key_char)) % len(alphabet)]
-    return plain_text
+def decrypt(ciphertext, key):
+    plaintext = ""
+    key_index = 0
+    for cipher_char in ciphertext:
+        plain_char_index = (alphabet.index(cipher_char) - alphabet.index(key[key_index])) % len(alphabet)
+        plain_char = alphabet[plain_char_index]
+        plaintext += plain_char
+        key += plain_char
+        key_index += 1
+    return plaintext
 
 
 def main():
     initial_key = "deceptive"
     key = initial_key + "wearediscoveredsaveyourself"
     cipher_text = encrypt("wearediscoveredsaveyourself", key)
-    plain_text = decrypt(cipher_text, key)
+    plain_text = decrypt(cipher_text, initial_key)
     print(plain_text)
     print(cipher_text)
 
