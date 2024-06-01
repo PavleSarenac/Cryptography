@@ -42,22 +42,25 @@ def get_next_key_byte() -> int:
 
 
 def encrypt(plaintext) -> tuple:
-    ciphertext = []
+    ciphertext = ""
     keys_used = []
-    plaintext_hex_string = plaintext.encode("utf-8").hex()
+    plaintext_hex_string = plaintext.encode("utf-8").hex()  # Ova hex() metoda garantuje da je duzina stringa umnozak dvojke.
     for i in range(0, len(plaintext_hex_string), 2):
         new_key = get_next_key_byte()
         ciphertext_int = int(plaintext_hex_string[i:i+2], 16) ^ new_key
         keys_used.append(new_key)
-        ciphertext.append(hex(ciphertext_int)[2:])
+        ciphertext_hex = hex(ciphertext_int)[2:]  # Ova hex() metoda ne garantuje da ce bajt biti uvek predstavljen sa dve hex cifre.
+        if len(ciphertext_hex) == 1:
+            ciphertext_hex = "0" + ciphertext_hex
+        ciphertext += ciphertext_hex
     return ciphertext, keys_used
 
 
 def decrypt(ciphertext, keys_used) -> str:
     plaintext = []
     key_index = 0
-    for ciphertext_hex_byte_string in ciphertext:
-        plaintext_int = int(ciphertext_hex_byte_string, 16) ^ keys_used[key_index]
+    for i in range(0, len(ciphertext), 2):
+        plaintext_int = int(ciphertext[i:i+2], 16) ^ keys_used[key_index]
         plaintext_byte = bytes.fromhex(hex(plaintext_int)[2:])
         plaintext.append(plaintext_byte.decode("utf-8"))
         key_index += 1
