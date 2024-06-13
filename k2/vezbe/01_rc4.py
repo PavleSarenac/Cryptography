@@ -1,3 +1,5 @@
+# Ne treba kod da se zna.
+
 import random
 import os
 
@@ -57,14 +59,14 @@ def encrypt(plaintext) -> tuple:
 
 
 def decrypt(ciphertext, keys_used) -> str:
-    plaintext = []
+    plaintext = ""
     key_index = 0
     for i in range(0, len(ciphertext), 2):
         plaintext_int = int(ciphertext[i:i+2], 16) ^ keys_used[key_index]
         plaintext_byte = bytes.fromhex(hex(plaintext_int)[2:])
-        plaintext.append(plaintext_byte.decode("utf-8"))
+        plaintext += plaintext_byte.decode("utf-8")
         key_index += 1
-    return "".join(plaintext)
+    return plaintext
 
 
 def main():
